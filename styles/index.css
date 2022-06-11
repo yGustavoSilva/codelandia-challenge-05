@@ -1,0 +1,254 @@
+@import 'reset.css';
+
+:root {
+
+    --bright: #628E75;
+    --dark: #1A4855;
+    --background-rotation: 154.76deg;
+    --start: 3%;
+    --end: 84.12%;
+    --gradient: linear-gradient(var(--background-rotation), var(--bright) var(--start), var(--dark) var(--end));
+    --default-foreground: #F9F9F9;
+    --button-details: var(--bright);
+}
+
+* {
+    color: var(--default-foreground);
+}
+
+body {
+    padding: 1rem 2rem;
+    background: var(--gradient);
+}
+
+/* [ Header ] */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    width: 100px;
+    height: 48px;
+}
+
+.social-media {
+    column-gap: 1.5rem;
+}
+
+.social-media img {
+    width: 20px;
+    height: 20px;
+}
+
+/* [ Main ] */
+
+main {
+    margin-top: 1rem;
+}
+
+    /* { Ghosts Image } */
+
+main > figure {
+    margin: auto;
+}
+
+main > figure img {
+    width: 300px;
+    height: 220px;
+    object-fit: cover;
+}
+
+    /* { Info Content } */
+
+.specs {
+    height: 370px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1.5rem;
+}
+
+hgroup {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+}
+
+h2 {
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+h1 {
+    font-size: 3rem;
+    line-height: 3.3rem;
+    font-weight: 900;
+}
+
+p {
+    font-size: .9rem;
+    line-height: 1.65rem;
+    font-weight: 400;
+}
+
+    /* { Buttons } */
+
+.buttons {
+    display: flex;
+    margin: auto 0 0 0;
+}
+
+.button {
+    fill: var(--button-details);
+}
+
+.border {
+    stroke: var(--button-details);
+}
+
+        /* {{ Watch button }} */
+
+.watchNow {
+    width: max-content;
+    height: max-content;
+    display: flex;
+    position: relative;
+}
+
+.watchNow :is(figure, input) {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+}
+
+.watchNow figure {
+    right: 0;
+    left: -140px;
+}
+
+.watchNow img {
+    width: 15px;
+    height: 15px;
+}
+
+.watchNow input {
+    width: 100%;
+}
+
+        /* {{ Trailer Button }} */
+
+.watchTrailer {
+    width: max-content;
+    position: relative;
+    display: none;
+}
+
+.watchTrailer input {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+}
+
+/* [ Reponsive ] */
+
+@media (min-width: 600px) {
+
+    .specs {
+        height: max-content;
+    }
+
+    .buttons {
+        margin: auto 0;
+    }
+    .watchTrailer {
+        display: flex;
+    }
+
+    .buttons {
+        justify-content: space-between;
+    }
+}
+
+@media (min-width: 1000px) {
+
+    :root {
+        --background-rotation: 130.02deg;
+        --start: 0.66%;
+        --end: 83.32%;
+    }
+
+    body {
+        display: flex;
+        flex-direction: column;
+    }
+
+    main {
+        flex-grow: 1;
+        display: grid;
+        grid-template-columns: 460px auto;
+        grid-template-rows: auto;
+    }
+    main > figure {
+        height: 390px;
+        align-items: flex-end;
+        margin-right: 0;
+        grid-area: 1/2/2/3;
+    }
+
+    main > figure img{
+        width: 500px;
+        height: 390px;
+        object-position: top;
+    }
+
+    hgroup {
+        margin-top: 1rem;
+    }
+
+    .specs {
+        max-width: 460px;
+        height: 390px;
+        justify-content: space-between;
+        margin: auto;
+    }
+
+    .specs h1 {
+        line-height: 4.5rem;
+        font-size: 68px;
+        max-width: 400px;
+    }
+
+    .specs p {
+        max-width: 400px;
+    }
+
+    .specs, main > figure {
+        margin-top: 4rem;
+    }
+}
+
+@media (min-width: 1200px) {
+
+    body {
+        padding: 4rem 13rem 0 13rem;
+    }
+}
+
+    /* { Mobile (desktop version) } */
+
+@media only screen and (hover: none) and (pointer: coarse) and (orientation: landscape) {
+
+    :root {
+        --background-rotation: 90deg;
+        --start: 0%;
+        --end: 100%;
+    }
+
+    main {
+        padding-bottom: 3rem;
+    }
+}
